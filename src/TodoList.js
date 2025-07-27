@@ -38,7 +38,7 @@ const {todos,setTodos}=useContext(TodosContext)
     }else{
       todosToBeRendered=todos;
     }
-    const todosJsx=todosToBeRendered.map((t)=>{
+    const todosJsx=(todosToBeRendered||[]).map((t)=>{
       return <Todo key={t.id} todo={t} />;
     })
   useEffect(()=>{
