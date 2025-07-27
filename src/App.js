@@ -3,7 +3,7 @@ import TodoList from "./TodoList";
 import {createTheme,ThemeProvider} from "@mui/material/styles"
 import {TodosContext} from "./contexts/TodosContext"
 import {v4 as uuidv4} from "uuid";
-import {useState,useContext} from "react";
+import {useState} from "react";
 
 const theme=createTheme({
   typography:{fontFamily:["A"],},

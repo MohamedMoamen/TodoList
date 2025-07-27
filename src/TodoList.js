@@ -22,21 +22,21 @@ const {todos,setTodos}=useContext(TodosContext)
   const [displayedTodosType,setDisplayedTodosType]=useState("all")
   
   // filteration arrays
-  const completedTodos=todos.filter((t)=>{
+  const completedTodos=(todos||[]).filter((t)=>{
     return (t.isCompleted);
   });
-  const notCompletedTodos=todos.filter((t)=>{
+  const notCompletedTodos=(todos||[]).filter((t)=>{
     return (!t.isCompleted);
   });
   let todosToBeRendered=todos;
-   if (displayedTodosType=="completed")
+   if (displayedTodosType==="completed")
     {
       todosToBeRendered=completedTodos;
-    } else if(displayedTodosType=="notCompleted")
+    } else if(displayedTodosType==="notCompleted")
     {
       todosToBeRendered=notCompletedTodos;
     }else{
-      todosToBeRendered=todos;//Momkn mnktbsh el else deh
+      todosToBeRendered=todos;
     }
     const todosJsx=todosToBeRendered.map((t)=>{
       return <Todo key={t.id} todo={t} />;
@@ -103,7 +103,7 @@ const {todos,setTodos}=useContext(TodosContext)
         </Grid>
         <Grid size={4}>
         <Button onClick={handleAddClick} variant="contained" style={{width:"100%",height:"100%"}}
-        disabled={titleInput.length==0}>إضافة</Button> 
+        disabled={titleInput.length===0}>إضافة</Button> 
         </Grid> 
       </Grid>
           </CardContent>
