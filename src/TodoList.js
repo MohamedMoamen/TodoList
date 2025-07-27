@@ -43,7 +43,7 @@ const {todos,setTodos}=useContext(TodosContext)
     })
   useEffect(()=>{
     console.log("calling use effect");
-    const storageTodos=JSON.parse(localStorage.getItem("todos"))
+    const storageTodos=JSON.parse(localStorage.getItem("todos")||[])
     setTodos(storageTodos);
   },[]);
 
@@ -60,7 +60,7 @@ const {todos,setTodos}=useContext(TodosContext)
       details:"",
       isCompleted:false
     }
-    const updatedTodos=[...todos,newTodo]
+    const updatedTodos=[...(todos||[]),newTodo]
     setTodos(updatedTodos);
     localStorage.setItem("todos",JSON.stringify(updatedTodos));
     setTitleInput("");
